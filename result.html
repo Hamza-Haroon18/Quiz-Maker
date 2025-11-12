@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- <script src="style.js"></script> -->
+    <!-- <script src="answer.js"></script> -->
+<script src="style.js"></script>
+<!-- <script defer src="result.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <ul class="bg-blue-900 text-white flex justify-around items-center text-lg font-bold h-20 w-full fixed">
+        <li><img class="bg-no-repeat bg-cover h-20" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ06VtPGwN7IyGbKZy1fdf0QLLeQ2wC-o8EyA&s" alt=""></li>
+        <li><a class="hover:text-xl" href="index.html">Home</a></li>
+        <li class="contact_us"><a class="hover:text-xl" href="contact.html">Contact Us</a></li>
+        <li class="about"><a class="hover:text-xl" href="about.html">About</a></li>
+        <li class="quiz"><a class="hover:text-xl" href="quiz.html">Quiz</a></li>
+    </ul>
+
+    <!-- <div class="container h-auto bg-gray-100 flex justify-center items-center">
+        <div id="quizSummary" class="max-w-xl mx-auto bg-white p-5 rounded-lg shadow-md mt-5">
+            <p class="text-2xl font-bold mb-3">Quiz Summary</p>
+            <p class="text-lg">Your Score: <span id="quizScore" class="font-bold">0</span>/5</p>
+            <p>Answer Summary:</p>
+            <ul id="answerSummary"></ul>
+        </div>
+    
+        <div class="max-w-xl mx-auto bg-white p-5 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-4">
+                <p class="text-lg font-bold">Question <span id="questionNumber">1</span> of 5</p>
+                <p class="text-lg font-bold">Time Left: <span id="timer" class="text-red-500">60</span> sec</p>
+            </div>
+            <div class="w-full bg-gray-300 rounded-full h-2.5 mb-4">
+                <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 20%;"></div>
+            </div>
+            <p id="questionText" class="text-xl mb-4">Question goes here?</p>
+            <button id="submitButton" class="bg-green-500 text-white px-4 py-2 rounded-md w-full">Submit</button>
+        </div>
+    </div> -->
+    
+    
+    <div class="pt-24 p-5">
+        <div class="max-w-xl mx-auto bg-white p-5 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-4">
+                <p class="text-lg font-bold">Question <span id="questionNumber">1</span> of 5</p>
+                <p class="text-lg font-bold">Time Left: <span id="timer" class="text-red-500">60</span> sec</p>
+            </div>
+            <div class="w-full bg-gray-300 rounded-full h-2.5 mb-4">
+                <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 20%;"></div>
+            </div>
+            <p class="text-xl mb-4">Question goes here?</p>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full">Submit</button>
+        </div>
+        
+        <!-- <div id="quizSummary" class="max-w-xl mx-auto bg-white p-5 rounded-lg shadow-md mt-5 hidden">
+            <p class="text-2xl font-bold mb-3">Quiz Summary</p>
+            <p class="text-lg">Your Score: <span id="quizScore" class="font-bold">0</span>/5</p>
+        </div>
+        <p>Quiz Summary</p>
+    <p>Your Score: <span id="score"></span> / <span id="total"></span></p>
+    <p>Answer Summary:</p>
+    <ul id="answerSummary"></ul>
+    </div> -->
+    <div class="pt-24 p-5">
+        <div class="max-w-xl mx-auto bg-white p-5 rounded-lg shadow-md">
+            <p class="text-2xl font-bold text-center mb-4">Quiz Summary</p>
+            <p class="text-lg text-center">Your Score: <span id="score" class="font-bold text-blue-500"></span> / <span id="total"></span></p>
+            <p class="text-lg font-semibold mt-4">Answer Summary:</p>
+            <ul id="answerSummary" class="list-disc pl-5"></ul>
+        </div>
+    </div>
+    
+
+    <div class="h-80 w-full bg-gray-300 mt-5 justify-evenly flex">
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Features</li>
+                <li><a href="#" class="hover:text-2xl">Schools & District</a></li>
+                <li><a href="#" class="hover:text-2xl">Quizzes For Work</a></li>
+                <li><a href="#" class="hover:text-2xl">Create a Quiz</a></li>
+                <li><a href="#" class="hover:text-2xl">Create a Lesson</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Subjects</li>
+                <li><a href="#" class="hover:text-2xl">Mathematics</a></li>
+                <li><a href="#" class="hover:text-2xl">Social Studies</a></li>
+                <li><a href="#" class="hover:text-2xl">Science</a></li>
+                <li><a href="#" class="hover:text-2xl">Physics</a></li>
+                <li><a href="#" class="hover:text-2xl">Chemistry</a></li>
+                <li><a href="#" class="hover:text-2xl">Biology</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">About</li>
+                <li><a href="#" class="hover:text-2xl">Our Story</a></li>
+                <li><a href="#" class="hover:text-2xl">Quizizz Blog</a></li>
+                <li><a href="#" class="hover:text-2xl">Media Kit</a></li>
+                <li><a href="#" class="hover:text-2xl">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Support</li>
+                <li><a href="#" class="hover:text-2xl">F.A.Q.</a></li>
+                <li><a href="#" class="hover:text-2xl">Help & Support</a></li>
+                <li><a href="#" class="hover:text-2xl">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-2xl">Terms of Service</a></li>
+                <li><a href="#" class="hover:text-2xl">Teacher Resources</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="h-10 w-full bg-gray-300 flex gap-5">
+        <p class="pl-5">© 2025 Quizizz Inc.</p>
+        <i class="fa-brands fa-facebook text-xl"></i>
+        <i class="fa-brands fa-x-twitter text-xl"></i>
+        <i class="fa-brands fa-square-instagram text-xl"></i>
+
+        <!-- <div class="pl-180 flex items-center">
+            <p class="pr-9 font-bold">Get our App</p>
+            <div class="ml-9 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/apple%20app%20store.png');"></div>
+            <div class="ml-3 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/google%20play.png');"></div> -->
+    </div>
+</body>
+
+</html>

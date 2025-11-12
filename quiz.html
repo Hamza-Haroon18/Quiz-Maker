@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <ul class="bg-blue-900 text-white flex justify-around items-center text-lg font-bold h-20 w-full fixed">
+        <li><img class="bg-no-repeat bg-cover h-20" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ06VtPGwN7IyGbKZy1fdf0QLLeQ2wC-o8EyA&s" alt=""></li>
+        <li><a class="hover:text-xl" href="index.html">Home</a></li>
+        <li class="contact_us"><a class="hover:text-xl" href="contact.html">Contact Us</a></li>
+        <li class="about"><a class="hover:text-xl" href="about.html">About</a></li>
+        <li class="quiz"><a class="hover:text-xl" href="quiz.html">Quiz</a></li>
+    </ul>
+
+    <div class="container mx-auto h-auto w-full pt-29">
+        <p class="text-5xl text-blue-700 font-bold hover:text-6xl transition-all duration-200">Rules And Regulation</p>
+        <div class="border-4 w-full mt-4"></div>
+        <div class="h-58 w-full bg-gray-100 mt-8 leading-loose">
+            <ul class="pl-4 pt-6">
+                <li>✅ <strong>Time Limit</strong> – Each quiz must be completed within the given time.</li>
+                <li>✅ <strong>No Retakes</strong> – Once submitted, answers cannot be changed or reattempted.</li>
+                <li>✅ <strong>Fair Play</strong> – No external help, cheating, or collaboration is allowed.</li>
+                <li>✅ <strong>Scoring</strong> – Points are awarded based on accuracy and speed.</li>
+                <li>✅ <strong>Technical Issues</strong> – Ensure a stable internet connection; we are not responsible for interruptions.</li>
+                <li>✅ <strong>Updates</strong> – Rules may be updated periodically; users are responsible for staying informed.</li>
+            </ul>
+        </div>
+        <!-- <div class="grid grid-cols-3 gap-5 mt-8">
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+            <button class="h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-700 hover:h-15 w-42 transition-all"><a href="quiz_question_part1.html">Are U Ready .... Start Quiz</a></button>
+        </div> -->
+        <div class="flex justify-evenly items-center">
+            <div class="subject grid grid-cols-3 gap-x-8 gap-y-5 mt-8">
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="maths1">
+                    Maths
+                </button>
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="physics1">
+                    Physics
+                </button>
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="chemistry1">
+                    Chemistry
+                </button>
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="science1">
+                    Science
+                </button>
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="sports1">
+                    Sports
+                </button>
+                <button class="quiz-btn h-13 w-80 font-bold text-xl text-blue-700 rounded-full bg-pink-200 hover:h-15 hover:w-82 transition-all hover:border-2 border-blue-600" data-subject="general_knowledge1">
+                    General Knowledge
+                </button>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center mt-8">
+            <button class="start-btn h-13 w-80 font-bold text-xl text-white rounded-full mt-4 bg-green-500 hover:h-15 w-42 transition-all">Are U Ready .... Start Quiz</button>
+        </div>
+
+    </div>
+
+    <div class="h-80 w-full bg-gray-300 mt-5 justify-evenly flex flex-wrap gap-5 p-5">
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Resources</li>
+                <li><a href="school-district.html" class="hover:text-2xl">Schools & Districts</a></li>
+                <li><a href="work.html" class="hover:text-2xl">Quizzes for Work</a></li>
+                <li><a href="resources.html" class="hover:text-2xl">Learning Materials</a></li>
+                <li><a href="events.html" class="hover:text-2xl">Upcoming Events</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Quiz Categories</li>
+                <li><a href="quiz.html" class="hover:text-2xl">MCQs</a></li>
+                <li><a href="quiz-tf.html" class="hover:text-2xl">True/False</a></li>
+                <li><a href="quiz-riddle.html" class="hover:text-2xl">Riddles & Puzzles</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">About Us</li>
+                <li><a href="story.html" class="hover:text-2xl">Our Story</a></li>
+                <li><a href="blog.html" class="hover:text-2xl">Blog</a></li>
+                <li><a href="media.html" class="hover:text-2xl">Media Kit</a></li>
+                <li><a href="carreer.html" class="hover:text-2xl">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Support</li>
+                <li><a href="faq.html" class="hover:text-2xl">FAQ</a></li>
+                <li><a href="help.html" class="hover:text-2xl">Help Center</a></li>
+                <li><a href="policy.html" class="hover:text-2xl">Privacy Policy</a></li>
+                <li><a href="terms.html" class="hover:text-2xl">Terms of Service</a></li>
+                <li><a href="teacher.html" class="hover:text-2xl">Teacher Resources</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="h-10 w-full bg-gray-300 flex gap-5">
+        <p class="pl-5">© 2025 Quizizz Inc.</p>
+        <i class="fa-brands fa-facebook text-xl"></i>
+        <i class="fa-brands fa-x-twitter text-xl"></i>
+        <i class="fa-brands fa-square-instagram text-xl"></i>
+
+        <!-- <div class="pl-180 flex items-center">
+            <p class="pr-9 font-bold">Get our App</p>
+            <div class="ml-9 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/apple%20app%20store.png');"></div>
+            <div class="ml-3 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/google%20play.png');"></div> -->
+    </div>
+    <script>
+const subjectButtons = document.querySelectorAll('.quiz-btn');
+let selectedSubject = null;
+
+subjectButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        subjectButtons.forEach(b => b.classList.remove('border-4', 'border-blue-800', 'bg-blue-100', 'text-stone-700'));
+        
+        btn.classList.add('border-4', 'border-blue-800', 'bg-blue-600', 'text-stone-700');
+        
+        selectedSubject = btn.dataset.subject;
+        console.log("Selected Subject:", selectedSubject);
+    });
+});
+
+const startBtn = document.querySelector('.start-btn');
+startBtn.addEventListener('click', () => {
+    if(!selectedSubject){
+        alert("Please select a subject first!");
+        return;
+    }
+    window.location.href = selectedSubject + ".html";
+});
+</script>
+
+</body>
+</html>

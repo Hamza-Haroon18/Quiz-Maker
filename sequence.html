@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Order Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .option.selected {
+            border-width: 2px !important;
+            border-color: #10B981 !important;
+            background-color: #D1FAE5;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <ul class="bg-blue-900 text-white flex justify-around items-center text-lg font-bold h-20 w-full fixed">
+        <li><img class="bg-no-repeat bg-cover h-20"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ06VtPGwN7IyGbKZy1fdf0QLLeQ2wC-o8EyA&s"
+                alt=""></li>
+        <li><a class="hover:text-xl" href="index.html">Home</a></li>
+        <li class="contact_us"><a class="hover:text-xl" href="contact.html">Contact Us</a></li>
+        <li class="about"><a class="hover:text-xl" href="about.html">About</a></li>
+        <li class="quiz"><a class="hover:text-xl" href="quiz.html">Quiz</a></li>
+    </ul>
+
+    <div class="pt-28 max-w-4xl mx-auto">
+
+        <!-- Question Card -->
+        <div id="question-container" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-semibold question">Question</h2>
+                <div
+                    class="timer w-20 h-20 rounded-full border-4 border-gray-300 flex items-center justify-center text-2xl font-bold bg-gray-50">
+                    20</div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="A"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="B"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="C"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="D"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between">
+                <button
+                    class="previous px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg disabled:opacity-50">Previous</button>
+                <div class="flex gap-4">
+                    <button
+                        class="next px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg disabled:opacity-50">Next</button>
+                    <button
+                        class="submit px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Card -->
+        <div id="result-container" class="hidden bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Quiz Summary</h2>
+            <div id="summary" class="text-left"></div>
+            <h3 id="score" class="text-2xl font-bold mt-6 text-green-700"></h3>
+        </div>
+
+    </div>
+
+    <script>
+        const questions = [
+            { text: "What comes next in this sequence: 2, 4, 6, 8, ?", options: { A: "10", B: "12", C: "9", D: "16" }, answer: "A" },
+            { text: "What comes next in this sequence: 1, 1, 2, 3, 5, 8, ?", options: { A: "11", B: "12", C: "13", D: "15" }, answer: "C" },
+            { text: "Arrange these numbers in ascending order: 45, 12, 78, 33", options: { A: "12, 33, 45, 78", B: "33, 12, 78, 45", C: "78, 45, 33, 12", D: "12, 45, 33, 78" }, answer: "A" },
+            { text: "What comes next in this sequence: 5, 10, 20, 40, ?", options: { A: "60", B: "80", C: "70", D: "100" }, answer: "B" },
+            { text: "Arrange these letters in alphabetical order: D, A, C, B", options: { A: "A, B, C, D", B: "D, C, B, A", C: "B, A, D, C", D: "C, D, A, B" }, answer: "A" },
+            { text: "What comes next in this sequence: 3, 6, 12, 24, ?", options: { A: "30", B: "36", C: "48", D: "50" }, answer: "C" },
+            { text: "Arrange these numbers in descending order: 7, 14, 3, 9", options: { A: "14, 9, 7, 3", B: "3, 7, 9, 14", C: "7, 3, 9, 14", D: "14, 7, 3, 9" }, answer: "A" },
+            { text: "What comes next in this sequence: 10, 20, 30, 40, ?", options: { A: "50", B: "60", C: "45", D: "55" }, answer: "A" },
+            { text: "Arrange these words in alphabetical order: Zebra, Apple, Mango, Banana", options: { A: "Apple, Banana, Mango, Zebra", B: "Zebra, Mango, Banana, Apple", C: "Banana, Apple, Mango, Zebra", D: "Apple, Mango, Banana, Zebra" }, answer: "A" },
+            { text: "What comes next in this sequence: 1, 4, 9, 16, 25, ?", options: { A: "30", B: "36", C: "35", D: "40" }, answer: "B" },
+            { text: "Arrange these numbers in ascending order: 22, 5, 18, 9", options: { A: "5, 9, 18, 22", B: "22, 18, 9, 5", C: "5, 18, 9, 22", D: "9, 5, 18, 22" }, answer: "A" },
+            { text: "What comes next in this sequence: 2, 4, 8, 16, 32, ?", options: { A: "48", B: "64", C: "50", D: "60" }, answer: "B" },
+            { text: "Arrange these letters in alphabetical order: F, B, E, A, D", options: { A: "A, B, D, E, F", B: "F, E, D, B, A", C: "B, A, D, F, E", D: "A, D, B, E, F" }, answer: "A" },
+            { text: "What comes next in this sequence: 0, 1, 1, 2, 3, 5, 8, ?", options: { A: "10", B: "12", C: "13", D: "15" }, answer: "C" },
+            { text: "Arrange these numbers in descending order: 11, 23, 7, 18", options: { A: "23, 18, 11, 7", B: "7, 11, 18, 23", C: "11, 23, 18, 7", D: "23, 11, 18, 7" }, answer: "A" }
+
+        ];
+
+        let currentQuestion = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let timer = 20;
+        let timerInterval;
+
+        const questionEl = document.querySelector(".question");
+        const optionsEl = document.querySelectorAll(".option");
+        const timerEl = document.querySelector(".timer");
+        const nextBtn = document.querySelector(".next");
+        const prevBtn = document.querySelector(".previous");
+        const submitBtn = document.querySelector(".submit");
+        const resultContainer = document.getElementById("result-container");
+        const summaryEl = document.getElementById("summary");
+        const scoreEl = document.getElementById("score");
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timer = 20;
+            timerEl.textContent = timer;
+            timerInterval = setInterval(() => {
+                timer--;
+                timerEl.textContent = timer;
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    goNext();
+                }
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            startTimer();
+            const q = questions[currentQuestion];
+            questionEl.textContent = `Q${currentQuestion + 1}: ${q.text}`;
+            optionsEl.forEach(opt => {
+                opt.querySelector("span").textContent = `${opt.dataset.choice}: ${q.options[opt.dataset.choice]}`;
+                opt.classList.remove("selected");
+                if (userAnswers[currentQuestion] === opt.dataset.choice) {
+                    opt.classList.add("selected");
+                }
+                opt.onclick = () => {
+                    optionsEl.forEach(o => o.classList.remove("selected"));
+                    opt.classList.add("selected");
+                    userAnswers[currentQuestion] = opt.dataset.choice;
+                }
+            });
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === questions.length - 1;
+        }
+
+        function goNext() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            }
+        }
+
+        function goPrev() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById("question-container").classList.add("hidden");
+            resultContainer.classList.remove("hidden");
+
+            summaryEl.innerHTML = "";
+            let score = 0;
+            questions.forEach((q, i) => {
+                const userAns = userAnswers[i] || "No Answer";
+                const correct = q.answer;
+                if (userAns === correct) score++;
+                summaryEl.innerHTML += `<p class="mb-2">Q${i + 1}: Your answer: <strong>${userAns}</strong>, Correct: <strong>${correct}</strong></p>`;
+            });
+            scoreEl.textContent = `Your Score: ${score} / ${questions.length}`;
+        }
+
+        nextBtn.addEventListener("click", goNext);
+        prevBtn.addEventListener("click", goPrev);
+        submitBtn.addEventListener("click", submitQuiz);
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>

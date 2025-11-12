@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Teasures Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .option.selected {
+            border-width: 2px !important;
+            border-color: #10B981 !important;
+            background-color: #D1FAE5;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <ul class="bg-blue-900 text-white flex justify-around items-center text-lg font-bold h-20 w-full fixed">
+        <li><img class="bg-no-repeat bg-cover h-20"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ06VtPGwN7IyGbKZy1fdf0QLLeQ2wC-o8EyA&s"
+                alt=""></li>
+        <li><a class="hover:text-xl" href="index.html">Home</a></li>
+        <li class="contact_us"><a class="hover:text-xl" href="contact.html">Contact Us</a></li>
+        <li class="about"><a class="hover:text-xl" href="about.html">About</a></li>
+        <li class="quiz"><a class="hover:text-xl" href="quiz.html">Quiz</a></li>
+    </ul>
+
+    <div class="pt-28 max-w-4xl mx-auto">
+
+        <!-- Question Card -->
+        <div id="question-container" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-semibold question">Question</h2>
+                <div
+                    class="timer w-20 h-20 rounded-full border-4 border-gray-300 flex items-center justify-center text-2xl font-bold bg-gray-50">
+                    20</div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="A"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="B"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="C"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+                <div class="option p-4 bg-purple-50 rounded-lg shadow hover:shadow-md cursor-pointer flex items-center justify-between"
+                    data-choice="D"><span></span><i class="fa-solid fa-circle text-black"></i></div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between">
+                <button
+                    class="previous px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg disabled:opacity-50">Previous</button>
+                <div class="flex gap-4">
+                    <button
+                        class="next px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg disabled:opacity-50">Next</button>
+                    <button
+                        class="submit px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Card -->
+        <div id="result-container" class="hidden bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Quiz Summary</h2>
+            <div id="summary" class="text-left"></div>
+            <h3 id="score" class="text-2xl font-bold mt-6 text-green-700"></h3>
+        </div>
+
+    </div>
+
+    <script>
+        const questions = [
+            { text: "If you have three apples and you take away two, how many do you have?", options: { A: "One", B: "Two", C: "Three", D: "None" }, answer: "B" },
+            { text: "A farmer has 17 sheep and all but 9 run away. How many are left?", options: { A: "8", B: "9", C: "17", D: "0" }, answer: "B" },
+            { text: "How many months have 28 days?", options: { A: "1", B: "6", C: "12", D: "2" }, answer: "C" },
+            { text: "If it takes 5 machines 5 minutes to make 5 items, how long would 100 machines take to make 100 items?", options: { A: "100 minutes", B: "5 minutes", C: "10 minutes", D: "50 minutes" }, answer: "B" },
+            { text: "What goes up but never comes down?", options: { A: "Age", B: "Balloon", C: "Rain", D: "Smoke" }, answer: "A" },
+            { text: "Before Mount Everest was discovered, what was the highest mountain on Earth?", options: { A: "K2", B: "Mount Everest", C: "Kangchenjunga", D: "Lhotse" }, answer: "B" },
+            { text: "If you multiply this number by any other number, the answer will always be the same. What is it?", options: { A: "1", B: "0", C: "2", D: "10" }, answer: "B" },
+            { text: "What has hands but can’t clap?", options: { A: "Clock", B: "Human", C: "Monkey", D: "Robot" }, answer: "A" },
+            { text: "Which word is spelled incorrectly in every dictionary?", options: { A: "Incorrectly", B: "Dictionary", C: "Wrongly", D: "Spelling" }, answer: "A" },
+            { text: "If you are running in a race and pass the person in second place, what position are you in?", options: { A: "First", B: "Second", C: "Third", D: "Last" }, answer: "B" },
+            { text: "A man pushes his car to a hotel and tells the owner he’s bankrupt. What is happening?", options: { A: "He’s playing Monopoly", B: "He lost his job", C: "He ran out of gas", D: "He’s homeless" }, answer: "A" },
+            { text: "What can you catch but not throw?", options: { A: "Cold", B: "Ball", C: "Fish", D: "Frisbee" }, answer: "A" },
+            { text: "What begins with T, ends with T, and has T in it?", options: { A: "Teapot", B: "Tent", C: "Toilet", D: "Target" }, answer: "A" },
+            { text: "How many times can you subtract 10 from 100?", options: { A: "10", B: "9", C: "Once", D: "Infinite" }, answer: "C" },
+            { text: "What has a head and a tail but no body?", options: { A: "Coin", B: "Snake", C: "Comet", D: "Lizard" }, answer: "A" }
+
+        ];
+
+        let currentQuestion = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let timer = 20;
+        let timerInterval;
+
+        const questionEl = document.querySelector(".question");
+        const optionsEl = document.querySelectorAll(".option");
+        const timerEl = document.querySelector(".timer");
+        const nextBtn = document.querySelector(".next");
+        const prevBtn = document.querySelector(".previous");
+        const submitBtn = document.querySelector(".submit");
+        const resultContainer = document.getElementById("result-container");
+        const summaryEl = document.getElementById("summary");
+        const scoreEl = document.getElementById("score");
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timer = 20;
+            timerEl.textContent = timer;
+            timerInterval = setInterval(() => {
+                timer--;
+                timerEl.textContent = timer;
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    goNext();
+                }
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            startTimer();
+            const q = questions[currentQuestion];
+            questionEl.textContent = `Q${currentQuestion + 1}: ${q.text}`;
+            optionsEl.forEach(opt => {
+                opt.querySelector("span").textContent = `${opt.dataset.choice}: ${q.options[opt.dataset.choice]}`;
+                opt.classList.remove("selected");
+                if (userAnswers[currentQuestion] === opt.dataset.choice) {
+                    opt.classList.add("selected");
+                }
+                opt.onclick = () => {
+                    optionsEl.forEach(o => o.classList.remove("selected"));
+                    opt.classList.add("selected");
+                    userAnswers[currentQuestion] = opt.dataset.choice;
+                }
+            });
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === questions.length - 1;
+        }
+
+        function goNext() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            }
+        }
+
+        function goPrev() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById("question-container").classList.add("hidden");
+            resultContainer.classList.remove("hidden");
+
+            summaryEl.innerHTML = "";
+            let score = 0;
+            questions.forEach((q, i) => {
+                const userAns = userAnswers[i] || "No Answer";
+                const correct = q.answer;
+                if (userAns === correct) score++;
+                summaryEl.innerHTML += `<p class="mb-2">Q${i + 1}: Your answer: <strong>${userAns}</strong>, Correct: <strong>${correct}</strong></p>`;
+            });
+            scoreEl.textContent = `Your Score: ${score} / ${questions.length}`;
+        }
+
+        nextBtn.addEventListener("click", goNext);
+        prevBtn.addEventListener("click", goPrev);
+        submitBtn.addEventListener("click", submitQuiz);
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>

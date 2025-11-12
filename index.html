@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="style.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <title>Quiz Maker</title>
+</head>
+<body>
+    <ul class="bg-blue-900 text-white flex justify-around items-center text-lg font-bold h-20 w-full fixed">
+        <li><img class="bg-no-repeat bg-cover h-20" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ06VtPGwN7IyGbKZy1fdf0QLLeQ2wC-o8EyA&s" alt=""></li>
+        <li><a class="hover:text-xl" href="index.html">Home</a></li>
+        <li class="contact_us"><a class="hover:text-xl" href="contact.html">Contact Us</a></li>
+        <li class="about"><a class="hover:text-xl" href="about.html">About</a></li>
+        <li class="quiz"><a class="hover:text-xl" href="quiz.html">Quiz</a></li>
+    </ul>
+
+    <div class="h-100 w-full bg-no-repeat bg-center flex items-center justify-between slider" 
+     style="background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220819/pngtree-challenge-testing-knowledge-without-relying-on-handraising-in-the-classroom-photo-image_19595156.jpg'); background-size: 100% 100%;">
+     <button class="slider_left pl-4"><a href="#" class="h-20 w-15 flex justify-center items-center bg-gray-100"><i class="fa-solid fa-less-than text-4xl"></i></a></button>
+     <button class="slider_right pr-4"><a href="#" class="h-20 w-15 flex justify-center items-center bg-gray-100"><i class="fa-solid fa-greater-than text-4xl"></i></a></button>
+    </div>
+
+    <div class="h-50 w-full bg-gray-300 justify-center items-center text-center text-xl flex leading-relaxed font-bold text-purple-800">
+        <p>"Welcome to the Ultimate Quiz Challenge! 🎉 <br>
+            Test your knowledge, challenge yourself, and explore exciting topics. Are you ready to start? Let’s go! 🚀"
+        </p>
+    </div>
+
+    <!-- <div class="container mx-auto mt-5 bg-gray-100">
+        <div class="h-70 w-60 bg-yellow-200 flex leading-relaxed text-center justify-center items-center text-xl leading-relaxed font-bold text-blue-500 hover:shadow-orange-400 shadow-2xl"><a href="#" class="mt-4 bg-no-repeat bg-contain h-60 w-full" style="background-image: url('https://www.imf.org/wp-content/uploads/2018/03/START-QUIZ-1.png');">Start Quiz</a></div>
+    </div> -->
+    <div class="container mx-auto mt-5 bg-gray-100 justify-evenly flex">
+        <div class="h-70 w-60 bg-yellow-100 flex justify-center items-center text-3xl font-bold text-blue-700 shadow-2xl hover:shadow-orange-400 pt-3 transition-all duration-200 hover:text-4xl"
+             style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9FWnZDfKtNWflFupNl5BnmcWHIeLB-SzxNOgS9olrbBDzAxaKvMUc9jjlIJ5LTPcPZyl7G_FO283K7yfxxue7KCnwe5BcMTtRnhuS-Qzckbg0-dahXwclLGyYfzoaZmwDCBawcCik74oroecpU0vDM3C-fQ9yvDKhPVfEEpz-u5zEP2F5Nvuj0GTls3s/s1600/mcqshome.png'); background-size: contain; background-repeat: no-repeat;">
+            <a href="quiz.html" class="w-full h-full flex justify-center items-center mt-25">Quiz-MCQs</a>
+        </div>
+
+        <div class="h-70 w-60 bg-yellow-100 flex justify-center items-center text-3xl font-bold text-blue-700 shadow-2xl hover:shadow-orange-400 pt-3 transition-all duration-200 hover:text-4xl"
+             style="background-image: url('https://i.ytimg.com/vi/8SIanDknVj8/maxresdefault.jpg'); background-size: contain; background-repeat: no-repeat;">
+            <a href="quiz-tf.html" class="w-full h-full flex justify-center items-center mt-25">Quiz-True/False</a>
+        </div>
+
+        <div class="h-70 w-60 bg-yellow-100 flex justify-center items-center text-3xl font-bold text-blue-700 shadow-2xl hover:shadow-orange-400 pt-3 transition-all duration-200 hover:text-4xl"
+             style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUiWiCu3uMrQA-d_N_t2_NvI4TO4cuujHgVQ&s'); background-size: contain; background-repeat: no-repeat;">
+            <a href="quiz-riddle.html" class="w-full h-full flex justify-center items-center mt-25">Quiz-Riddles</a>
+        </div>
+    </div>
+    
+    <div class="h-80 w-full bg-gray-300 mt-5 justify-evenly flex">
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Features</li>
+                <li><a href="school-district.html" class="hover:text-2xl">Schools & District</a></li>
+                <li><a href="work.html" class="hover:text-2xl">Quizzes For Work</a></li>
+                <li><a href="resources.html" class="hover:text-2xl">Resources</a></li>
+                <li><a href="events.html" class="hover:text-2xl">Events</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Quiz Categories</li>
+                <li><a href="quiz.html" class="hover:text-2xl">MCQs</a></li>
+                <li><a href="quiz-tf.html" class="hover:text-2xl">True-False</a></li>
+                <li><a href="quiz-riddle.html" class="hover:text-2xl">Brain Riddles</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">About</li>
+                <li><a href="story.html" class="hover:text-2xl">Our Story</a></li>
+                <li><a href="blog.html" class="hover:text-2xl">Quizizz Blog</a></li>
+                <li><a href="media.html" class="hover:text-2xl">Media Kit</a></li>
+                <li><a href="carreer.html" class="hover:text-2xl">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="h-auto w-60 flex flex-col text-xl leading-relaxed mt-7">
+            <ul>
+                <li class="font-bold">Support</li>
+                <li><a href="faq.html" class="hover:text-2xl">F.A.Q.</a></li>
+                <li><a href="help.html" class="hover:text-2xl">Help & Support</a></li>
+                <li><a href="policy.html" class="hover:text-2xl">Privacy Policy</a></li>
+                <li><a href="terms.html" class="hover:text-2xl">Terms of Service</a></li>
+                <li><a href="teacher.html" class="hover:text-2xl">Teacher Resources</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="h-10 w-full bg-gray-300 flex gap-5">
+        <p class="pl-5">© 2025 Quizizz Inc.</p>
+        <i class="fa-brands fa-facebook text-xl"></i>
+        <i class="fa-brands fa-x-twitter text-xl"></i>
+        <i class="fa-brands fa-square-instagram text-xl"></i>
+
+        <!-- <div class="pl-180 flex items-center">
+            <p class="pr-9 font-bold">Get our App</p>
+            <div class="ml-9 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/apple%20app%20store.png');"></div>
+            <div class="ml-3 h-10 w-full bg-no-repeat bg-contain" style="background-image: url('https://cf.quizizz.com/img/landing/google%20play.png');"></div> -->
+    </div>
+</body>
+</html>
